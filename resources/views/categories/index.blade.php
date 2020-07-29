@@ -2,27 +2,26 @@
 @extends('layouts.main')
 @section('title', 'Trang liệt kê')
 @section('content')
-    <table border="1" cellspacing="0" cellpadding="8">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th></th>
-        </tr>
+<div><a href="{{route('categories.create')}}" class="btn btn-primary">Thêm Mới</a></div>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Up Date</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
         @foreach($categories AS $category)
-            <tr>
-                <td>{{ $category->id }}</td>
-                <td>{{ $category->name }}</td>
-                <td>
-                <a href="{{route('categories.edit',$category->id)}}">
-                        Update
-                    </a>
-                    <a href="{{ url('category/delete/' . $category->id) }}"
-                       onclick="return confirm('Are you delete?')">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-        @endforeach
-    </table>
+      <tr>
+        <td>{{$category->id}}</td>
+        <td>{{$category->name}}</td>
+        <td><a href="{{route('categories.edit',$category->id)}}" class="btn btn-primary">Edit</a></td>
+        <td><a href="{{route('categories.delete',$category->id)}}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
    
 @endsection

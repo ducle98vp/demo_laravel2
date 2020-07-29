@@ -1,14 +1,13 @@
+@extends('layouts.main')
+@section('content')
 <form action="" method="POST">
-    
-    
     {{ csrf_field() }}
-    <div class="form-check">
-    <label class="form-check-label" for="exampleCheck1">ID</label>
-    <input type="text" class="form-check-input" id="exampleCheck1" disabled value="{{$category->id}}">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Name</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name" name="name" value="{{$category->name}}">
     </div>
-    <div class="form-check">
-        <label class="form-check-label" for="exampleCheck1">Name</label>
-    <input type="text" class="form-check-input" id="exampleCheck1" value="{{$category->name}}" name="name">
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Up Date</button>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  </form> 
+@endsection

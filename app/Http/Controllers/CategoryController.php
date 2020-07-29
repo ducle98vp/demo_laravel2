@@ -17,14 +17,34 @@ class CategoryController extends Controller
 		$category= Category::findOrFail($id);
 		return view('categories.edit',compact('category'));
 		
+		
 	}
 	public function edit(Request $request,$id)
 	{
 		$category= Category::findOrFail($id);
 		$category->name=$request->input('name');
 		$category->save();
-		$categories= Category::all();
-    	return view('categories.index',compact('categories'));
+		return redirect()->route('categories.index');
+
+	}
+	public function create()
+	{
+		return view('categories.create');
+	}
+	public function store(Request $request)
+	{
+		$arr_insert=[
+			'name'=>$request->input('name'),
+		];
+		Category::insert($arr_insert);
+		return redirect()->route('categories.index');
+		
+	}
+	public function delete($id)
+	{
+		$category=Category::findOrFail($id);
+		$category->delete();
+		return redirect()->route('categories.index');
 
 	}
 

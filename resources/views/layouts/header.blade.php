@@ -82,7 +82,7 @@
             <li class="header">LAOYOUT ADMIN</li>
 
             <li>
-                <a href="index.php?controller=category&action=index">
+                <a href="{{route('categories.index')}}">
                     <i class="fa fa-th"></i> <span>Quản lý danh mục</span>
                     <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">new</small>-->
@@ -90,7 +90,7 @@
                 </a>
             </li>
             <li>
-                <a href="index.php?controller=product&action=index">
+            <a href="{{route('products.index')}}">
                     <i class="fa fa-code"></i> <span>Quản lý sản phẩm</span>
                     <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">new</small>-->
