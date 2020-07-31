@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
       <label for="formGroupExampleInput">Name</label>
@@ -12,8 +12,10 @@
     </div>
     <div class="form-group">
         <label for="category">Category</label>
-        <select name="" id="category" class="form-control">
-            <option value=""></option>
+        <select name="category" id="category" class="form-control">
+            @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
         </select>
     </div>
     <div class="form-group">
@@ -21,14 +23,17 @@
         <textarea name="summary" id="Sumary" class="form-control"></textarea>
     </div>
     <div class="form-group">
-       <label for="">Status</label>
-       <p></p>
-       <input type="radio" class="">Disable
-       <input type="radio" class="">Enable
+       <label for="status">Status</label>
+       <select name="status" id="status" class="form-control">
+       
+            <option value="0">Disable</option>
+            <option value="1">Enable</option>
+        
+    </select>
     </div>
     <div class="form-group">
         <label for="avatar">Avatar</label>
-        <input type="file" class="form-control" id="avatar">
+        <input type="file" class="form-control" id="avatar" name="avatar">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>

@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/category/list','CategoryController@index')->name('categories.index');
 Route::get('/category/detail/{title}/{id}','CategoryController@detail');
-Route::post('/category/store','CategoryController@store')->name('category.store');
+Route::post('/category/create','CategoryController@store')->name('category.store');
 Route::get('/category/update/{id}','CategoryController@update')->name('categories.edit');
 Route::post('/category/update/{id}','CategoryController@edit');
 Route::get('/category/create', 'CategoryController@create')->name('categories.create');
@@ -31,5 +31,6 @@ Route::get('/product/edit/{id}','ProductController@edit')->name('products.edit')
 Route::post('/product/edit/{id}','ProductController@update');
 Route::get('/product/delete/{id}','ProductController@delete')->name('products.delete');
 Route::get('/product/create','ProductController@create')->name('products.create');
+Route::post('/product/create','ProductController@store');
 
 

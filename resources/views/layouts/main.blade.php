@@ -33,16 +33,30 @@
     <div class="message-wrap content-wrap content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-        @if($errors->any())
-            <!-- <! {{--gọi phương thức all để trả về 1 mảng các lỗi--}} --> 
-            @foreach($errors->all() AS $error)
-                <h3 style="color: red">
-                   <!--  {{--Cú pháp echo của Laravel sẽ chống đc
-                    lỗi bảo mật XSS--}} -->
-                    {{ $error }}
-                </h3>
-            @endforeach
+            {{-- @php
+                echo '<pre>';
+                    print_r($errors->all());
+                echo '</pre>';
+            @endphp --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
+        @if (Session::has('success'))
+	        <div class="alert alert-info">{{ Session::get('success') }}</div>
+        @endif
+        @if (Session::has('error'))
+	        <div class="alert alert-danger">{{ Session::get('error') }}</div>
+        @endif
+        
+        
+            
+       
            
         </section>
     </div>

@@ -36,8 +36,18 @@ class CategoryController extends Controller
 		$arr_insert=[
 			'name'=>$request->input('name'),
 		];
-		Category::insert($arr_insert);
+		$is_insert=Category::insert($arr_insert);
+		if($is_insert)
+        {
+            $request->session()->flash('success','Thêm mới danh mục thành công');
+        }
+        else
+        {
+            $request->session()->flash('error','Thêm mới thất bại');
+		}
+		
 		return redirect()->route('categories.index');
+
 		
 	}
 	public function delete($id)
