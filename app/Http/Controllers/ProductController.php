@@ -13,6 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $products=Product::all();
+        $products=Product::paginate(4);
         return view('products.index',compact('products'));
     }
     public function create()
@@ -98,8 +99,11 @@ class ProductController extends Controller
        
         
     }
-    public function delete()
+    public function delete($id)
     {
+        $product=Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('products.index');
 
     }
 }
