@@ -15,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     
-    return redirect()->route('categories.index');
+    return redirect()->route('users.login');
 });
-Route::get('/category/list','CategoryController@index')->name('categories.index');
+Route::group([
+    'middleware' => 'auth'
+], function () {
+    Route::get('/category/list','CategoryController@index')->name('categories.index');
 Route::get('/category/detail/{title}/{id}','CategoryController@detail');
 Route::post('/category/create','CategoryController@store')->name('category.store');
 Route::get('/category/update/{id}','CategoryController@update')->name('categories.edit');
@@ -32,5 +35,10 @@ Route::post('/product/edit/{id}','ProductController@update');
 Route::get('/product/delete/{id}','ProductController@delete')->name('products.delete');
 Route::get('/product/create','ProductController@create')->name('products.create');
 Route::post('/product/create','ProductController@store');
+
+
+});
+Route::get('/user/login','UserController@getLogin')->name('users.login');
+Route::post('/user/login','UserController@postLogin')->name('user.postLogin');
 
 

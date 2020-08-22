@@ -25,7 +25,11 @@
       <tr>
         <td>{{$product->id}}</td>
         <td>{{$product->title}}</td>
-        <td>{{$product->category_id}}</td>
+        <td>
+          @foreach ($categories as $category)
+          {{$category->id==$product->category_id ? $category->name :""}}
+        @endforeach
+      </td>
         <td>{{$product->price}}</td>
         <td><img src='{{asset("assets/uploads/$product->avatar")}}' alt="" width="80px" height="80px"></td>
         <td>{{$product->summary}}</td>

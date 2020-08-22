@@ -12,9 +12,14 @@ class ProductController extends Controller
     use Image;
     public function index()
     {
+        $categories=Category::all();
         $products=Product::all();
         $products=Product::paginate(4);
-        return view('products.index',compact('products'));
+        $arr=[
+            'products'=>$products,
+            'categories'=>$categories
+        ];
+        return view('products.index',$arr);
     }
     public function create()
     {
