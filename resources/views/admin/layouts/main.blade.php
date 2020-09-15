@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/AdminLTE.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckfinder/ckfinder.js"></script>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('assets/css/_all-skins.min.css')}}">
@@ -33,30 +35,6 @@
     <div class="message-wrap content-wrap content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            {{-- @php
-                echo '<pre>';
-                    print_r($errors->all());
-                echo '</pre>';
-            @endphp --}}
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if (Session::has('success'))
-	        <div class="alert alert-info">{{ Session::get('success') }}</div>
-        @endif
-        @if (Session::has('error'))
-	        <div class="alert alert-danger">{{ Session::get('error') }}</div>
-        @endif
-        
-        
-            
-       
            
         </section>
     </div>

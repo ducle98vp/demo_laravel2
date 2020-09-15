@@ -22,15 +22,9 @@ class UserController extends Controller
             'password' => $request->password
         ];
         if (Auth::attempt($arr)) {
-            
            return redirect()->route('categories.index');
-        }
-        else
-        {
-            
-            $request->session()->flash('error','Email hoặc Password ko chính xác');
-            return back();
-            
+        } else {
+            return back()->with('error','Email hoặc Password ko chính xác');
         }
     }
     public function getSignup()

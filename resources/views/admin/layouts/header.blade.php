@@ -86,6 +86,14 @@
             </span>
                 </a>
             </li>
+            <li>
+                <a href="{{route('new.index')}}">
+                        <i class="fa fa-code"></i> <span>Quản lý tin tức</span>
+                        <span class="pull-right-container">
+                  <!--<small class="label pull-right bg-green">new</small>-->
+                </span>
+                    </a>
+                </li>
         </ul>
     </section>
     <!-- /.sidebar -->

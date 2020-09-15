@@ -105,7 +105,7 @@
 				<div class="row">
 					<div class="col-md-6 col-xs-12">
 						<div class="customer-login my-account">
-						<form method="post" class="login" action="">
+						<form method="post" class="login" action="{{Route('user.postLogin')}}">
 								@csrf
 								<div class="form-fields">
 									<h2>Login</h2>

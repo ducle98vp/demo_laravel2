@@ -10,8 +10,10 @@
         <th scope="col">Name</th>
         <th scope="col">Category_ID</th>
         <th scope="col">Price</th>
+        <th scope="col">Quality</th>
         <th scope="col">Avatar</th>
         <th scope="col">Summary</th>
+        <th scope="col">Content</th>
         <th scope="col">Status</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
@@ -31,6 +33,7 @@
         @endforeach
       </td>
         <td>{{$product->price}}</td>
+        <td>{{$product->quality}}</td>
         <td><img src='{{asset("assets/uploads/$product->avatar")}}' alt="" width="80px" height="80px"></td>
         <td>{{$product->summary}}</td>
         @php

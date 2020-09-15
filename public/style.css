@@ -69,6 +69,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-transform: uppercase;
 }
+.xxx{
+    width: 370px ;
+    height: 280px;
+}
 a {transition: all 0.3s ease 0s;text-decoration:none;color:#777}
 a:hover {
   color: #c2a476;

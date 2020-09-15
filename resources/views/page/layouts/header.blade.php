@@ -84,6 +84,8 @@
         <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body class="home-one">
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0" nonce="VQnmfVWN"></script>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -96,7 +98,7 @@
 					<!-- logo start -->
 					<div class="col-md-3 col-sm-12 text-center nopadding-right">
 						<div class="top-logo">
-							<a href="index.html"><img src="/img/logo.gif" alt="" /></a>
+						<a href="{{Route('home.index')}}"><img src="/img/logo.gif" alt="" /></a>
 						</div>
 					</div>
 					<!-- logo end -->
@@ -105,11 +107,12 @@
 						<div class="mainmenu">
 							<nav>
 								<ul>
-									<li class="expand"><a href="index.html">Home</a>
+								<li class="expand"><a href="{{Route('home.index')}}">Home</a>
 																	
 									</li>
-									<li class="expand"><a href="shop-grid.html">Man</a>
-										<div class="restrain mega-menu megamenu1">
+									@foreach ($categories as $category)
+								<li class="expand"><a href="{{Route('filter.categories',$category->id)}}">{{$category->name}}</a>
+										{{-- <div class="restrain mega-menu megamenu1">
 											<span>
 												<a class="mega-menu-title" href="shop-grid.html"> Tạo Kiểu Tóc </a>
 												<a href="shop-grid.html">Sáp</a>
@@ -134,79 +137,15 @@
 											<span class="block-last">
 												<img src="img/block_menu.jpg" alt="" />
 											</span>
-										</div>
+										</div> --}}
 									</li>
-									<li class="expand"><a href="shop-list.html">Women</a>
-										<div class="restrain mega-menu megamenu2">
-											<span>
-												<a class="mega-menu-title" href="shop-grid.html">Sữa Rửa Mặt</a>
-												<a href="shop-grid.html">Da Dầu Ngừa Mụn</a>
-												<a href="shop-grid.html">Da Khô</a>
-												<a href="shop-grid.html">Dưỡng Trắng</a>
-												<a href="shop-grid.html">Nước Hoa Hồng</a>
-											</span>
-											<span>
-												<a class="mega-menu-title" href="shop-grid.html">Chăm Sóc Cơ Thể</a>
-												<a href="shop-grid.html">Sữa Tắm</a>
-												<a href="shop-grid.html">Khử Mùi</a>
-												<a href="shop-grid.html">Nước Hoa</a>
-												<a href="shop-grid.html">Chăm Sóc Miệng</a>
-											</span>
-											<span>
-												<a class="mega-menu-title" href="shop-grid.html">Son</a>
-												<a href="shop-grid.html">Son Dưỡng</a>
-												<a href="shop-grid.html">Son Lỳ</a>
-												
-											</span>
-											<span class="block-last">
-												<a class="mega-menu-title" href="shop-grid.html">Top 10</a>
-												<a href="shop-grid.html">Sửa Rửa Mặt</a>
-												<a href="shop-grid.html">Khử Mùi</a>
-												<a href="shop-grid.html">Nước Hoa</a>
-												<a href="shop-grid.html">Chăm Sóc Miệng</a>
-											</span>
-										</div>
-									</li>
-									<li class="expand"><a href="shop-grid.html">Shop</a>
-										<div class="restrain mega-menu megamenu4">
-											<span>
-												<a class="mega-menu-title" href="shop-list.html">Shop Pages</a>
-												<a href="shop-grid.html">Xem Sản Phẩm</a>
-												<a href="login.html">Tài Khoản</a>
-												
-												<a href="checkout.html">Thanh Toán</a>
-											</span>
-											<span class="block-last">
-												<a class="mega-menu-title" href="product-details.html">Phân Loại</a>
-												<a href="shop-grid.html">Dưới 100k</a>
-												<a href="shop-grid.html">Dưới 500k</a>
-												<a href="shop-grid.html">Dưới 1 triệu</a>
-												<a href="shop-grid.html">Dưới 5 Triệu</a>
-												<a href="shop-grid.html">Trên 5 Triệu</a>
-												
-											</span>
-										</div>
-									</li>
-									<li class="expand"><a href="#">Pages</a>
-										<ul class="restrain sub-menu">
-											<li><a href="about-us.html">Thông Tin</a></li>
-											<li><a href="contact-us.html">Liên Hệ</a></li>
-											<li><a href="checkout.html">Thanh Toán</a></li>
-											<li><a href="login.html">Đăng Nhập</a></li>
-											
-											<li><a href="shop-grid.html">Sản Phẩm</a></li>
-											
-											<li><a href="cart.html">Giỏ Hàng</a></li>
-											<li><a href="wishlist.html">Danh Sách Yêu Thích</a></li>
-											<li><a href="404.html">404 Error</a></li>
-										</ul>									
-									</li>
-									<li class="expand"><a href="about-us.html">About</a></li>
-									<li class="expand"><a href="contact-us.html">Contact</a></li>
+									@endforeach
+									
+									
 								</ul>
 							</nav>
 						</div>
-						<!-- mobile menu start -->
+						{{-- <!-- mobile menu start -->
 						<div class="row">
 							<div class="col-sm-12 mobile-menu-area">
 								<div class="mobile-menu hidden-md hidden-lg" id="mob-menu">
@@ -333,7 +272,7 @@
 								</div>						
 							</div>
 						</div>
-						<!-- mobile menu end -->
+						<!-- mobile menu end --> --}}
 					</div>
 					<!-- mainmenu area end -->
 					<!-- top details area start -->
@@ -365,8 +304,8 @@
 								<div class="circle-shopping expand">
 									<div class="shopping-carts text-right">
 										<div class="cart-toggler">
-											<a href="#"><i class="icon-bag"></i></a>
-											<a href="#"><span class="cart-quantity">2</span></a>
+										<a href="{{Route('cart.index')}}"><i class="icon-bag"></i></a>
+										<a href="{{Route('cart.index')}}"><span class="cart-quantity">{{ Cart::count()}}</span></a>
 										</div>
 										<div class="restrain small-cart-content">
 											<ul class="cart-list">

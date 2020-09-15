@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -33,7 +32,9 @@ class ProductController extends Controller
             'name'=>'bail|required|min:3|max:255',
             'price'=>'required',
             'avatar'=>'image',
-            'summary'=>'required',
+            'summary'=>'bail|required|max:255',
+            'quality'=>'bail|required|max:11',
+            'content'=>'required'
         ];
         $messages=[
             'name.required'=>'Name ko được để trống',
@@ -42,6 +43,10 @@ class ProductController extends Controller
             'price.required'=>'Price không được để trống',
             'avatar.image'=>'avatar phải có dạng ảnh',
             'summary.required'=>'Summary không được để trống',
+            'summary.max'=>'Summary ko vượt quá 255 ký tự',
+            'quality.required'=>'Quality không được để trống',
+            'quality.max'=>'Quality quá lớn vui lòng thử lại sau',
+            'content.required'=>'Content không được để trống'
         ];
         $request->validate($rules,$messages);
         $avatar=$this->uploadImage($request->avatar);    
@@ -51,7 +56,9 @@ class ProductController extends Controller
             'price'=>$request->price,
             'avatar'=>$avatar,
             'summary'=>$request->summary,
-            'status'=>$request->status
+            'status'=>$request->status,
+            'quality'=>$request->quality,
+            'content'=>$request->content
         ];
         
         $is_insert=Product::insert($arr_insert);
@@ -83,14 +90,39 @@ class ProductController extends Controller
     }
     public function update(Request $request ,$id)
     {
-        $avatar=$this->uploadImage($request->avatar);
+        $rules=[
+            'name'=>'bail|required|min:3|max:255',
+            'price'=>'required',
+            'avatar'=>'image',
+            'summary'=>'bail|required|max:255',
+            'quality'=>'bail|required|max:11',
+            'content'=>'required'
+        ];
+        $messages=[
+            'name.required'=>'Name ko được để trống',
+            'name.min'=>'Name ít nhất 3 ký tự',
+            'name.max'=>'Name không vượt quá 255 ký tự',
+            'price.required'=>'Price không được để trống',
+            'avatar.image'=>'avatar phải có dạng ảnh',
+            'summary.required'=>'Summary không được để trống',
+            'summary.max'=>'Summary ko vượt quá 255 ký tự',
+            'quality.required'=>'Quality không được để trống',
+            'quality.max'=>'Quality quá lớn vui lòng thử lại sau',
+            'content.required'=>'Content không được để trống'
+        ];
+        $request->validate($rules,$messages);
         $product=Product::find($id);
+        if(!empty($request->avatar))
+        {
+            $product->avatar= $this->uploadImage($request->avatar);
+        }
         $product->title=$request->name;
         $product->category_id=$request->category;
         $product->price=$request->price;
-        $product->avatar=$avatar;
         $product->summary=$request->summary;
         $product->status=$request->status;
+        $product->quality=$request->quality;
+        $product->content=$request->content;
         $is_update=$product->save();
         return redirect()->Route('products.index');
         if($is_update)

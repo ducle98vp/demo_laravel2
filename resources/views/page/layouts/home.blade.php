@@ -64,13 +64,13 @@
                                                    <!-- single-product start -->
                                                <div class="single-product first-sale">
                                                 <div class="product-img">
-                                                    <a href="#">
+                                                <a href="{{Route('detail.index',$product->id)}}">
                                                     <img class="primary-image" src="/assets/uploads/{{$product->avatar}}" alt="" />
                                                         <img class="secondary-image" src="/img/products/{{$product->avatar}}g" alt="" />
                                                     </a>
                                                     <div class="action-zoom">
                                                         <div class="add-to-cart">
-                                                            <a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+                                                        <a href="{{Route('cart.add',$product->id)}}" title="Quick View"><i class="fa fa-search-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="actions">
@@ -80,7 +80,7 @@
                                                                     <a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
                                                                 </div>
                                                                 <div class="compare-button">
-                                                                    <a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+                                                                    <a href="{{Route('cart.add',$product->id)}}" title="Add to Cart"><i class="icon-bag"></i></a>
                                                                 </div>									
                                                             </div>
                                                             <div class="quickviewbtn">
@@ -113,7 +113,7 @@
                                                 <!-- single-product start -->
                                             <div class="single-product first-sale">
                                              <div class="product-img">
-                                                 <a href="#">
+                                                 <a href="{{Route('detail.index',$product->id)}}">
                                                  <img class="primary-image" src="/assets/uploads/{{$product->avatar}}" alt="" />
                                                      <img class="secondary-image" src="/img/products/{{$product->avatar}}g" alt="" />
                                                  </a>
@@ -129,7 +129,7 @@
                                                                  <a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
                                                              </div>
                                                              <div class="compare-button">
-                                                                 <a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+                                                                 <a href="{{Route('cart.add',$product->id)}}" title="Add to Cart"><i class="icon-bag"></i></a>
                                                              </div>									
                                                          </div>
                                                          <div class="quickviewbtn">
@@ -188,13 +188,13 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="single-product first-sale">
                                     <div class="product-img">
-                                        <a href="#">
+                                        <a href="{{Route('detail.index',$product->id)}}">
                                         <img class="primary-image" src="/assets/uploads/{{$product_new->avatar}}" alt="" />
                                             <img class="secondary-image" src="/assets/uploads/{{$product_new->avatar}}" alt="" />
                                         </a>
                                         <div class="action-zoom">
                                             <div class="add-to-cart">
-                                                <a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+                                                <a href="{{Route('cart.add',$product->id)}}" title="Quick View"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                         </div>
                                         <div class="actions">
@@ -204,7 +204,7 @@
                                                         <a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
                                                     </div>
                                                     <div class="compare-button">
-                                                        <a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+                                                        <a href="{{Route('cart.add',$product->id)}}" title="Add to Cart"><i class="icon-bag"></i></a>
                                                     </div>									
                                                 </div>
                                                 <div class="quickviewbtn">
@@ -238,79 +238,38 @@
        <!-- <div class="latest-post-area"> -->
            <div class="container">
                <div class="area-title">
-                   <h2></h2>
+                   <h2>LATEST POST
+
+                   </h2>
                </div>
                <div class="row">
                    <div class="all-singlepost">
-                       <!-- single latestpost start -->
+                       @foreach ($news as $new)
+                            <!-- single latestpost start -->
                        <div class="col-md-4 col-sm-4 col-xs-12">
-                           <div class="single-post">
-                               <div class="post-thumb">
-                                   <a href="#">
-                                       <img src="img/post/post-1.jpg" alt="" />
-                                   </a>
-                               </div>
-                               <div class="post-thumb-info">
-                                   <div class="post-time">
-                                       <a href="#">Beauty</a>
-                                       <span>/</span>
-                                       <span>Post by</span>
-                                       <span>BootExperts</span>
-                                   </div>
-                                   <div class="postexcerpt">
-                                       <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas...</p>
-                                       <a href="#" class="read-more">Đọc Thêm</a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <!-- single latestpost end -->
-                       <!-- single latestpost start -->
-                       <div class="col-md-4 col-sm-4 col-xs-12">
-                           <div class="single-post">
-                               <div class="post-thumb">
-                                   <a href="#">
-                                       <img src="img/post/post-2.jpg" alt="" />
-                                   </a>
-                               </div>
-                               <div class="post-thumb-info">
-                                   <div class="post-time">
-                                       <a href="#">Fashion</a>
-                                       <span>/</span>
-                                       <span>Post by</span>
-                                       <span>BootExperts</span>
-                                   </div>
-                                   <div class="postexcerpt">
-                                       <p>Fusce ac odio odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus...</p>
-                                       <a href="#" class="read-more">Đọc Thêm</a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <!-- single latestpost end -->
-                       <!-- single latestpost start -->
-                       <div class="col-md-4 col-sm-4 col-xs-12">
-                           <div class="single-post">
-                               <div class="post-thumb">
-                                   <a href="#">
-                                       <img src="img/post/post-3.jpg" alt="" />
-                                   </a>
-                               </div>
-                               <div class="post-thumb-info">
-                                   <div class="post-time">
-                                       <a href="#">Brunch Network</a>
-                                       <span>/</span>
-                                       <span>Post by</span>
-                                       <span>BootExperts</span>
-                                   </div>
-                                   <div class="postexcerpt">
-                                       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                       <a href="#" class="read-more">Đọc Thêm</a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <!-- single latestpost end -->
+                        <div class="single-post">
+                            <div class="post-thumb">
+                                <a href="#">
+                                <img src="/assets/uploads/{{$new->avatar}}" alt="" class="xxx" />
+                                </a>
+                            </div>
+                            <div class="post-thumb-info">
+                                <div class="post-time">
+                                <a href="#">{{$new->title}}</a>
+                                    <span>/</span>
+                                    <span>Post by</span>
+                                    <span>BootExperts</span>
+                                </div>
+                                <div class="postexcerpt">
+                                <p>{{substr($new->summary,0,50)}}...</p>
+                                    <a href="#" class="read-more">Đọc Thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single latestpost end -->
+                       @endforeach
+                      
                    </div>
                </div>
            </div>
