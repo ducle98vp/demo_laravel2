@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     
-    return redirect()->route('home.index');
+    return redirect()->route('users.login');
 });
 Route::group([
     'middleware' => 'auth',
